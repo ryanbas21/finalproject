@@ -12,10 +12,14 @@ var core_1 = require('@angular/core');
 var StockFormComponent = (function () {
     function StockFormComponent() {
     }
+    __decorate([
+        core_1.Input('symbol'), 
+        __metadata('design:type', String)
+    ], StockFormComponent.prototype, "symbol", void 0);
     StockFormComponent = __decorate([
         core_1.Component({
             selector: 'stockform',
-            template: '<div> hello</div>'
+            template: "<div>\n\t\t\t\t<button (click)=\"newForm($event)\">Add Stock</button>\n\t\t\t\t</div>"
         }), 
         __metadata('design:paramtypes', [])
     ], StockFormComponent);

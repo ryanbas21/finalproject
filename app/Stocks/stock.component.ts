@@ -31,6 +31,6 @@ import {StockFormComponent} from './stockform.component';
 export class  StockComponent {
 	@Input() symbol: string;
 	
-
+	
 
 }
