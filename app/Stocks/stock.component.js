@@ -23,7 +23,7 @@ var StockComponent = (function () {
             selector: 'stock',
             directives: [stockticker_component_1.StockTickerComponent, stockform_component_1.StockFormComponent],
             styleUrls: ['app/Stocks/styles/stock-styles.css'],
-            template: "<div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-15 col-sm-3\">\n\t\t\t\t\t\t<profile></profile>\n\t\t\t\t\t</div>\n\t\t    \t\t<div class=\"col-md-15 col-sm-3\">\n\t\t    \t\t\t{{symbol}}\n\t\t    \t\t</div>\n\t\t    \t\t<div class=\"col-md-15 col-sm-3\">\n\t\t\t\t\t\t<stockticker \n\t\t\t\t\t\t\t[symbol]=\"symbol\"></stockticker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-15 col-sm-3\">\n\t\t\t\t\t\t<stockform></stockform>\n\t\t\t\t\t</div>\n\n\t\t    \t</div>\n\t\t</div> \n\t\t\t\t"
+            template: "\n\t\t<stockticker [symbol]=\"symbol\"></stockticker>\t\t\t\t\n\t\t"
         }), 
         __metadata('design:paramtypes', [])
     ], StockComponent);

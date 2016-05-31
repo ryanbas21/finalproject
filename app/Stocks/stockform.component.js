@@ -9,9 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var stockapi_service_1 = require('./stockapi.service');
 var StockFormComponent = (function () {
-    function StockFormComponent() {
+    function StockFormComponent(stockapiservice) {
+        this.stockapiservice = stockapiservice;
     }
+    StockFormComponent.prototype.newForm = function (event) {
+        event.preventDefault();
+        for (var i = 0; i < this.stockapiservice.purchased.length; i++) {
+            console.log(this.stockapiservice.purchased[i]);
+        }
+    };
     __decorate([
         core_1.Input('symbol'), 
         __metadata('design:type', String)
@@ -19,9 +27,9 @@ var StockFormComponent = (function () {
     StockFormComponent = __decorate([
         core_1.Component({
             selector: 'stockform',
-            template: "<div>\n\t\t\t\t<button (click)=\"newForm($event)\">Add Stock</button>\n\t\t\t\t</div>"
+            template: "<div>\n\t\t\t\t\n\n\t\t\t\t</div>\n\t\t\t\t"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [stockapi_service_1.StockApiService])
     ], StockFormComponent);
     return StockFormComponent;
 }());

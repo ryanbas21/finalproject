@@ -14,11 +14,17 @@ export class StockApiService {
 			name: 'Google',
 		
 			buyPrice: 700
+		},
+		
+		yahoo: {
+			name: 'Yahoo',
+			buyPrice: 800
 		}
-
-
-
 	};
-	purchased = ["nflx","goog"];
+	purchased = ["nflx","goog","yahoo"];
+
+	getStockInfo(symbol) {
+		let stockLink: string = 'finance.google.com/finance/info?client=ig&q=' + symbol;
+	}
 	
 }

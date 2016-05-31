@@ -4,9 +4,11 @@ import {StockApiService} from './stockapi.service';
 @Component({
 	selector: 'stockticker',
 	template: `<div>
-					{{stockData.name}}
-					{{stockPrice}}
-					</div>
+					Symbol: {{symbol}}<br>
+					Name: {{stockData.name}}<br>
+					Buy Price: {{stockPrice}}
+					<br><br>
+				</div>
 				`
 })
 
@@ -16,7 +18,6 @@ export class StockTickerComponent {
 	stockPrice: Object;
 	
 	constructor(private stockapi: StockApiService){
-	
 	}
 	ngOnInit () {
 		this.stockData = this.stockapi.stocks[this.symbol];

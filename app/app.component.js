@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var stock_component_1 = require('./Stocks/stock.component');
 var stockapi_service_1 = require('./Stocks/stockapi.service');
+var stockform_component_1 = require('./Stocks/stockform.component');
 var AppComponent = (function () {
     function AppComponent(stockapiservice) {
         this.stockapiservice = stockapiservice;
@@ -18,8 +19,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'angular-app',
-            directives: [stock_component_1.StockComponent],
-            template: "<div>\n  \t<stock *ngFor=\"let symbol of stockapiservice.purchased\"\n  \t[symbol]=\"symbol\"></stock>\n  </div>"
+            directives: [stock_component_1.StockComponent, stockform_component_1.StockFormComponent],
+            template: " \n  <div>\n  \t<input type=\"text\" name=\"sym\" /><button (click)=\"newForm($event)\">Add Stock</button>\n \t \t<br>\n\n  \t<stock *ngFor=\"let symbol of stockapiservice.purchased\"\n  \t\t[symbol]=\"symbol\"></stock>\n  </div>"
         }), 
         __metadata('design:paramtypes', [stockapi_service_1.StockApiService])
     ], AppComponent);

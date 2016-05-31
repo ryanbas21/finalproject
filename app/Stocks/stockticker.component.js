@@ -27,7 +27,7 @@ var StockTickerComponent = (function () {
     StockTickerComponent = __decorate([
         core_1.Component({
             selector: 'stockticker',
-            template: "<div>\n\t\t\t\t\t{{stockData.name}}\n\t\t\t\t\t{{stockPrice}}\n\t\t\t\t\t</div>\n\t\t\t\t"
+            template: "<div>\n\t\t\t\t\tSymbol: {{symbol}}<br>\n\t\t\t\t\tName: {{stockData.name}}<br>\n\t\t\t\t\tBuy Price: {{stockPrice}}\n\t\t\t\t\t<br><br>\n\t\t\t\t</div>\n\t\t\t\t"
         }), 
         __metadata('design:paramtypes', [stockapi_service_1.StockApiService])
     ], StockTickerComponent);

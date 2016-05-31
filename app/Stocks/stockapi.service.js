@@ -19,10 +19,17 @@ var StockApiService = (function () {
             goog: {
                 name: 'Google',
                 buyPrice: 700
+            },
+            yahoo: {
+                name: 'Yahoo',
+                buyPrice: 800
             }
         };
-        this.purchased = ["nflx", "goog"];
+        this.purchased = ["nflx", "goog", "yahoo"];
     }
+    StockApiService.prototype.getStockInfo = function (symbol) {
+        var stockLink = 'finance.google.com/finance/info?client=ig&q=' + symbol;
+    };
     StockApiService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

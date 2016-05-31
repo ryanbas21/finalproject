@@ -7,25 +7,9 @@ import {StockFormComponent} from './stockform.component';
 	selector: 'stock',
 	directives: [StockTickerComponent,StockFormComponent],
 	styleUrls: ['app/Stocks/styles/stock-styles.css'],
-	template: `<div>
-				<div class="row">
-					<div class="col-md-15 col-sm-3">
-						<profile></profile>
-					</div>
-		    		<div class="col-md-15 col-sm-3">
-		    			{{symbol}}
-		    		</div>
-		    		<div class="col-md-15 col-sm-3">
-						<stockticker 
-							[symbol]="symbol"></stockticker>
-					</div>
-					<div class="col-md-15 col-sm-3">
-						<stockform></stockform>
-					</div>
-
-		    	</div>
-		</div> 
-				`
+	template: `
+		<stockticker [symbol]="symbol"></stockticker>				
+		`
 })
 
 export class  StockComponent {
