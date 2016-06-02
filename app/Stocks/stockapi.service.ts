@@ -4,27 +4,39 @@ import { Injectable } from '@angular/core';
 
 @Injectable() 
 export class StockApiService {
-	stocks = {
-		nflx: {
+	public stocks = [
+		 {
 			name: 'Netflix',
-			
+			symbol: 'NFLX',
 			buyPrice: 200,
 		},
-		goog: {
+		 {
 			name: 'Google',
-		
+			symbol: 'GOOG',
 			buyPrice: 700
 		},
-		
-		yahoo: {
+
+		 {
 			name: 'Yahoo',
+			symbol: 'YAHO',
 			buyPrice: 800
 		}
-	};
-	purchased = ["nflx","goog","yahoo"];
+	];
+	purchased = ["nflx","goog","yaho"];
 
 	getStockInfo(symbol) {
-		let stockLink: string = 'finance.google.com/finance/info?client=ig&q=' + symbol;
+		this.purchased.push(symbol);
+		let stockLink: string = 'http://localhost:8000/stock/' + symbol;
+		//writing logic for get stock search bar
+	}
+	//retrieves stock from array
+	getStock (symbol) {
+		for (var i = 0; i < this.stocks.length; i ++) {
+			if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
+				return this.stocks[i];
+			}
+
+		}
 	}
 	
 }

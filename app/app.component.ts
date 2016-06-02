@@ -7,16 +7,18 @@ import {StockFormComponent} from './Stocks/stockform.component';
   directives: [StockComponent,StockFormComponent],
   template: ` 
   <div>
-  	<input type="text" name="sym" /><button (click)="newForm($event)">Add Stock</button>
- 	 	<br>
-
-  	<stock *ngFor="let symbol of stockapiservice.purchased"
+  	<input type="text" name="sym" />
+  	<button (click)="newForm($event)">Add Stock</button>
+ 	 <br>
+  		<stock *ngFor="let symbol of stockapiservice.purchased"
   		[symbol]="symbol"></stock>
   </div>`
 })
 export class AppComponent { 
 	constructor(private stockapiservice: StockApiService){}
-
+	newForm($event){
+    let symbol = $event.target.value;
+  }
 
 }
 

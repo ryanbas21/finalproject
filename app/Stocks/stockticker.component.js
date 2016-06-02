@@ -15,10 +15,16 @@ var StockTickerComponent = (function () {
         this.stockapi = stockapi;
     }
     StockTickerComponent.prototype.ngOnInit = function () {
-        this.stockData = this.stockapi.stocks[this.symbol];
-        //prints out stock buy price 
-        this.stockPrice = this.stockapi.stocks.nflx.buyPrice;
-        console.log(this.symbol, this.stockapi.stocks.nflx.buyPrice);
+        var newData = this.stockapi.getStock(this.symbol);
+        if (newData) {
+            this.stockData = newData;
+        }
+        else {
+            this.stockData = {
+                name: 'Stock Not Found',
+                price: 0
+            };
+        }
     };
     __decorate([
         core_1.Input('symbol'), 
@@ -27,7 +33,7 @@ var StockTickerComponent = (function () {
     StockTickerComponent = __decorate([
         core_1.Component({
             selector: 'stockticker',
-            template: "<div>\n\t\t\t\t\tSymbol: {{symbol}}<br>\n\t\t\t\t\tName: {{stockData.name}}<br>\n\t\t\t\t\tBuy Price: {{stockPrice}}\n\t\t\t\t\t<br><br>\n\t\t\t\t</div>\n\t\t\t\t"
+            template: "<div>\n\t\t\t\t\tSymbol: {{symbol}}<br>\n\t\t\t\t\tName: {{stockData.name}}<br>\n\t\t\t\t\tBuy Price: {{stockData.buyPrice}}\n\t\t\t\t\t<br><br>\n\t\t\t\t</div>\n\t\t\t\t"
         }), 
         __metadata('design:paramtypes', [stockapi_service_1.StockApiService])
     ], StockTickerComponent);

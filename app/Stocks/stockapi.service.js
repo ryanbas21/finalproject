@@ -11,24 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var StockApiService = (function () {
     function StockApiService() {
-        this.stocks = {
-            nflx: {
+        this.stocks = [
+            {
                 name: 'Netflix',
+                symbol: 'NFLX',
                 buyPrice: 200,
             },
-            goog: {
+            {
                 name: 'Google',
+                symbol: 'GOOG',
                 buyPrice: 700
             },
-            yahoo: {
+            {
                 name: 'Yahoo',
+                symbol: 'YAHO',
                 buyPrice: 800
             }
-        };
-        this.purchased = ["nflx", "goog", "yahoo"];
+        ];
+        this.purchased = ["nflx", "goog", "yaho"];
     }
     StockApiService.prototype.getStockInfo = function (symbol) {
         var stockLink = 'finance.google.com/finance/info?client=ig&q=' + symbol;
+    };
+    StockApiService.prototype.getStock = function (symbol) {
+        for (var i = 0; i < this.stocks.length; i++) {
+            if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
+                return this.stocks[i];
+            }
+        }
     };
     StockApiService = __decorate([
         core_1.Injectable(), 
