@@ -10,29 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var StockApiService = (function () {
-    function StockApiService() {
-        this.stocks = [
-            {
-                name: 'Netflix',
-                symbol: 'NFLX',
-                buyPrice: 200,
-            },
-            {
-                name: 'Google',
-                symbol: 'GOOG',
-                buyPrice: 700
-            },
-            {
-                name: 'Yahoo',
-                symbol: 'YAHO',
-                buyPrice: 800
-            }
-        ];
-        this.purchased = ["nflx", "goog", "yaho"];
+    function StockApiService(http) {
+        var _this = this;
+        this.stocks = [];
+        this.purchased = ["goog", "yaho"];
+        http.get('http://localhost:8000/stock/' + symbol)
+            .subscribe(function (stockInfo) { return _this.stocks.push(stockInfo); });
     }
     StockApiService.prototype.getStockInfo = function (symbol) {
-        var stockLink = 'finance.google.com/finance/info?client=ig&q=' + symbol;
+        this.purchased.push(symbol);
+        var stockLink = 'http://localhost:8000/stock/' + symbol;
+        //writing logic for get stock search bar
     };
+    //retrieves stock from array
     StockApiService.prototype.getStock = function (symbol) {
         for (var i = 0; i < this.stocks.length; i++) {
             if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
@@ -42,9 +32,10 @@ var StockApiService = (function () {
     };
     StockApiService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Http !== 'undefined' && core_1.Http) === 'function' && _a) || Object])
     ], StockApiService);
     return StockApiService;
+    var _a;
 }());
 exports.StockApiService = StockApiService;
 //# sourceMappingURL=stockapi.service.js.map

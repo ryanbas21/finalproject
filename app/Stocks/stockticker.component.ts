@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {StockApiService} from './stockapi.service';
-
+import {AppComponent} from './app.component';
 @Component({
 	selector: 'stockticker',
 	template: `<div>

@@ -8,7 +8,7 @@ import {StockFormComponent} from './Stocks/stockform.component';
   template: ` 
   <div>
   	<input type="text" name="sym" />
-  	<button (click)="newForm($event)">Add Stock</button>
+  	<button class="btn btn-primary" type="submit" (click)="newForm($event)">Add Stock</button>
  	 <br>
   		<stock *ngFor="let symbol of stockapiservice.purchased"
   		[symbol]="symbol"></stock>

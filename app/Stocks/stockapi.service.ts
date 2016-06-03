@@ -1,42 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Http } from '@angular/core';
+import {StockComponent} from './stock.component';
+import {AppComponent} from '../app.component';
+	@Injectable() 
+	export class StockApiService {
+		public stocks = [
+			 
+		];
 
-
-
-@Injectable() 
-export class StockApiService {
-	public stocks = [
-		 {
-			name: 'Netflix',
-			symbol: 'NFLX',
-			buyPrice: 200,
-		},
-		 {
-			name: 'Google',
-			symbol: 'GOOG',
-			buyPrice: 700
-		},
-
-		 {
-			name: 'Yahoo',
-			symbol: 'YAHO',
-			buyPrice: 800
+		purchased = ["goog","yaho"];
+		constructor(http: Http) {
+			http.get('http://localhost:8000/stock/' + symbol)
+			// .map(res => res.json())
+					   //parameter   //key          
+			.subscribe(stockInfo =>  this.stocks.push(stockInfo))
 		}
-	];
-	purchased = ["nflx","goog","yaho"];
 
-	getStockInfo(symbol) {
-		this.purchased.push(symbol);
-		let stockLink: string = 'http://localhost:8000/stock/' + symbol;
-		//writing logic for get stock search bar
-	}
-	//retrieves stock from array
-	getStock (symbol) {
-		for (var i = 0; i < this.stocks.length; i ++) {
-			if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
-				return this.stocks[i];
+		getStockInfo(symbol) {
+			this.purchased.push(symbol);
+			let stockLink: string = 'http://localhost:8000/stock/' + symbol;
+			//writing logic for get stock search bar
+		}
+		//retrieves stock from array
+		getStock (symbol) {
+			for (var i = 0; i < this.stocks.length; i ++) {
+				if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
+					return this.stocks[i];
+				}
+
 			}
-
 		}
 	}
-	
-}
