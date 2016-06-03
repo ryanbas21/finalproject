@@ -9,13 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('./rxjs-operators');
 var StockApiService = (function () {
     function StockApiService(http) {
-        var _this = this;
+        this.http = http;
         this.stocks = [];
-        this.purchased = ["goog", "yaho"];
-        http.get('http://localhost:8000/stock/' + symbol)
-            .subscribe(function (stockInfo) { return _this.stocks.push(stockInfo); });
+        this.purchased = ["", ""];
+        console.log(this.symbol);
+        http.get('http://localhost:8000/stock/' + this.symbol)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (stockInfo) { return console.log(stockInfo); });
     }
     StockApiService.prototype.getStockInfo = function (symbol) {
         this.purchased.push(symbol);
@@ -32,10 +36,9 @@ var StockApiService = (function () {
     };
     StockApiService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Http !== 'undefined' && core_1.Http) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [http_1.Http])
     ], StockApiService);
     return StockApiService;
-    var _a;
 }());
 exports.StockApiService = StockApiService;
 //# sourceMappingURL=stockapi.service.js.map

@@ -1,6 +1,6 @@
 import {Component,Input} from '@angular/core';
 import {StockApiService} from './stockapi.service';
-
+import {Injectable} from '@angular/core';
 @Component({
 	selector: 'stockform',
 	template: `<div>
@@ -9,7 +9,7 @@ import {StockApiService} from './stockapi.service';
 				</div>
 				`
 })
-
+@Injectable()
 export class StockFormComponent {
 	@Input('symbol') symbol: string;
 	stockData: Object;

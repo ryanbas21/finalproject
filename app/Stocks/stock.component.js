@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var stockticker_component_1 = require('./stockticker.component');
 var stockform_component_1 = require('./stockform.component');
+var core_2 = require('@angular/core');
 var StockComponent = (function () {
     function StockComponent() {
     }
@@ -24,7 +25,8 @@ var StockComponent = (function () {
             directives: [stockticker_component_1.StockTickerComponent, stockform_component_1.StockFormComponent],
             styleUrls: ['app/Stocks/styles/stock-styles.css'],
             template: "\n\t\t<stockticker [symbol]=\"symbol\"></stockticker>\t\t\t\t\n\t\t"
-        }), 
+        }),
+        core_2.Injectable(), 
         __metadata('design:paramtypes', [])
     ], StockComponent);
     return StockComponent;

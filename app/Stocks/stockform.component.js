@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var stockapi_service_1 = require('./stockapi.service');
+var core_2 = require('@angular/core');
 var StockFormComponent = (function () {
     function StockFormComponent(stockapiservice) {
         this.stockapiservice = stockapiservice;
@@ -28,7 +29,8 @@ var StockFormComponent = (function () {
         core_1.Component({
             selector: 'stockform',
             template: "<div>\n\t\t\t\t\n\n\t\t\t\t</div>\n\t\t\t\t"
-        }), 
+        }),
+        core_2.Injectable(), 
         __metadata('design:paramtypes', [stockapi_service_1.StockApiService])
     ], StockFormComponent);
     return StockFormComponent;
