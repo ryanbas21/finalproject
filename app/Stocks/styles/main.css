@@ -1,0 +1,35 @@
+#sidebar {
+	background-color: black;
+	height: 100vh;
+	position: fixed;
+}
+#main-component{
+	height: 100vh;
+	overflow: scroll;
+	margin-left: 320px;
+	width: 75%;
+	background-color: white;
+}
+.stock-component {
+	border: 1px solid lightgrey;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align: left;
+}
+.stock-component table {
+	margin-bottom: -1px;
+    list-style-type: none;
+    background-color: lightgrey;
+
+}
+.stock-component table td {
+	padding-right: 100px;
+}
+#profilepicture {
+	border-radius: 500px;
+	height: 250px;
+	width: 250px;
+	padding: 50px;
+
+
+}

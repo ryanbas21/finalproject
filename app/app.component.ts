@@ -8,14 +8,7 @@ import {HTTP_PROVIDERS} from '@angular/http';
 @Component({
   selector: 'angular-app',
   directives: [StockComponent,StockFormComponent],
-  template: ` 
-  <div>
-  	<input type="text" name="sym" />
-  	<button class="btn btn-primary" type="submit" (click)="newForm($event)">Add Stock</button>
- 	 <br>
-  		<stock *ngFor="let symbol of stockapiservice.purchased"
-  		[symbol]="symbol"></stock>
-  </div>`
+  templateUrl:'./app/Stocks/html/index.html'
 })
 export class AppComponent { 
 	constructor(private stockapiservice: StockApiService){}

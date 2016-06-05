@@ -23,7 +23,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'angular-app',
             directives: [stock_component_1.StockComponent, stockform_component_1.StockFormComponent],
-            template: " \n  <div>\n  \t<input type=\"text\" name=\"sym\" />\n  \t<button class=\"btn btn-primary\" type=\"submit\" (click)=\"newForm($event)\">Add Stock</button>\n \t <br>\n  \t\t<stock *ngFor=\"let symbol of stockapiservice.purchased\"\n  \t\t[symbol]=\"symbol\"></stock>\n  </div>"
+            templateUrl: './app/Stocks/html/index.html'
         }), 
         __metadata('design:paramtypes', [stockapi_service_1.StockApiService])
     ], AppComponent);

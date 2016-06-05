@@ -1,0 +1,16 @@
+
+<div id="container-fluid">
+	<div id='sidebar' class="col-md-3">
+		<img id="profilepicture" src="../../../assets/placeholder.gif" />
+		<h3>insert stuff</h3>
+	</div>
+  <div id="main-component" class="col-md-8">
+  	<input type="text" name="sym" />
+  	<button class="btn btn-primary" type="submit" (click)="newForm($event)">Add Stock</button>
+
+ 	 <br>
+  		<stock *ngFor="let symbol of stockapiservice.purchased"
+  		[symbol]="symbol"></stock>
+</div>
+
+</div>

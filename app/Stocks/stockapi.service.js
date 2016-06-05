@@ -16,9 +16,8 @@ var StockApiService = (function () {
         this.http = http;
         this.stocks = [];
         this.purchased = ["", ""];
-        console.log(this.symbol);
         http.get('http://localhost:8000/stock/' + this.symbol)
-            .map(function (res) { return res.json(); })
+            .map(function (res) { return console.log(res); })
             .subscribe(function (stockInfo) { return console.log(stockInfo); });
     }
     StockApiService.prototype.getStockInfo = function (symbol) {

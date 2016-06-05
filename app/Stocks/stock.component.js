@@ -23,7 +23,6 @@ var StockComponent = (function () {
         core_1.Component({
             selector: 'stock',
             directives: [stockticker_component_1.StockTickerComponent, stockform_component_1.StockFormComponent],
-            styleUrls: ['app/Stocks/styles/stock-styles.css'],
             template: "\n\t\t<stockticker [symbol]=\"symbol\"></stockticker>\t\t\t\t\n\t\t"
         }),
         core_2.Injectable(), 

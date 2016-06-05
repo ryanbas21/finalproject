@@ -3,13 +3,7 @@ import {StockApiService} from './stockapi.service';
 
 @Component({
 	selector: 'stockticker',
-	template: `<div>
-					Symbol: {{symbol}}<br>
-					Name: {{stockData.name}}<br>
-					Buy Price: {{stockData.buyPrice}}
-					<br><br>
-				</div>
-				`
+	templateUrl: './app/Stocks/html/stocktickercomponent.html'
 })
 
 export class StockTickerComponent {

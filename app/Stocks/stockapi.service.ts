@@ -7,14 +7,16 @@ import './rxjs-operators';
 	export class StockApiService {
 		symbol: string
 		public stocks = [
+			//objects in here
 			 
 		];
 
 		purchased = ["",""];
+		
 		constructor(private http: Http) {
-			console.log(this.symbol);
 			http.get('http://localhost:8000/stock/' + this.symbol)
-				.map(res => res.json())
+
+				.map(res => console.log(res))
 				//parameter   //key          
 				// .subscribe(stockInfo =>  this.stocks.push(stockInfo))
 				.subscribe(stockInfo => console.log(stockInfo))
