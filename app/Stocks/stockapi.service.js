@@ -17,7 +17,7 @@ var StockApiService = (function () {
         this.stocks = [
             {
                 symbol: this.symbol,
-                Company: this.company,
+                name: this.company,
                 buyPrice: this.price,
                 sellprice: this.price,
             }

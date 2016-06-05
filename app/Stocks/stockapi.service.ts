@@ -9,7 +9,7 @@ import './rxjs-operators';
 		public stocks = [
 			{
 				symbol: this.symbol,
-				Company: this.company, //company data from node
+				name: this.company, //company data from node
 				buyPrice: this.price ,//price from node,
 				sellprice: this.price, //price from node on day sold runs onclick of sold button
 
