@@ -18,6 +18,7 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.newForm = function ($event) {
         var symbol = $event.target.value;
+        this.stockapiservice.getStock(symbol);
     };
     AppComponent = __decorate([
         core_1.Component({

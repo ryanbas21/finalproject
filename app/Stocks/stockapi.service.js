@@ -14,17 +14,19 @@ require('./rxjs-operators');
 var StockApiService = (function () {
     function StockApiService(http) {
         this.http = http;
-        this.stocks = [];
+        this.stocks = [
+            {
+                symbol: this.symbol,
+                Company: this.company,
+                buyPrice: this.price,
+                sellprice: this.price,
+            }
+        ];
         this.purchased = ["", ""];
         http.get('http://localhost:8000/stock/' + this.symbol)
             .map(function (res) { return console.log(res); })
             .subscribe(function (stockInfo) { return console.log(stockInfo); });
     }
-    StockApiService.prototype.getStockInfo = function (symbol) {
-        this.purchased.push(symbol);
-        var stockLink = 'http://localhost:8000/stock/' + symbol;
-        //writing logic for get stock search bar
-    };
     //retrieves stock from array
     StockApiService.prototype.getStock = function (symbol) {
         for (var i = 0; i < this.stocks.length; i++) {

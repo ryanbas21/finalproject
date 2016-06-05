@@ -7,7 +7,15 @@ import './rxjs-operators';
 	export class StockApiService {
 		symbol: string
 		public stocks = [
-			//objects in here
+			{
+				symbol: this.symbol,
+				Company: this.company, //company data from node
+				buyPrice: this.price ,//price from node,
+				sellprice: this.price, //price from node on day sold runs onclick of sold button
+
+
+			}
+
 			 
 		];
 
@@ -15,17 +23,8 @@ import './rxjs-operators';
 		
 		constructor(private http: Http) {
 			http.get('http://localhost:8000/stock/' + this.symbol)
-
 				.map(res => console.log(res))
-				//parameter   //key          
-				// .subscribe(stockInfo =>  this.stocks.push(stockInfo))
 				.subscribe(stockInfo => console.log(stockInfo))
-		}
-
-		getStockInfo(symbol : string) {
-			this.purchased.push(symbol);
-			let stockLink: string = 'http://localhost:8000/stock/' + symbol;
-			//writing logic for get stock search bar
 		}
 		//retrieves stock from array
 		getStock (symbol : string) {
