@@ -60,7 +60,7 @@ var StockSchema = new mongoose.Schema({
 app.get('/stock/:id', function (res,req){
 	//sym is parameter for symbol
 	//sym is gotten from front-end
-	marketmuster.getQuotes(req.params.id, function(quote){
+	marketmuster.getQuotes(req.params.id, function(sym){
 		res.send(sym)
 	    console.log(quote.sym);
 	});

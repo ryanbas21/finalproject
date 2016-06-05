@@ -5,7 +5,7 @@
 		<h3>insert stuff</h3>
 	</div>
   <div id="main-component" class="col-md-8">
-  	<form (submit)="newForm(symbol)">
+  	<form (submit)="newForm(symbol,$event)">
   	<input type="text" name="sym" #symbol/>
   	<button class="btn btn-primary" type="submit">Add Stock</button>
 	</form>

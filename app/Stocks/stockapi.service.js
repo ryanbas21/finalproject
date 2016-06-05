@@ -19,6 +19,7 @@ var StockApiService = (function () {
     }
     //retrieves stock from array
     StockApiService.prototype.getStock = function (symbol) {
+        console.log('AHHH' + symbol);
         this.purchased.push(symbol);
         this.http.get('http://localhost:8000/stock/' + symbol)
             .map(function (res) { return console.log(res); })

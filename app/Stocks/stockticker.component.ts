@@ -16,8 +16,9 @@ export class StockTickerComponent {
 	ngOnInit(){
 		let newData = this.stockapi.getStock(this.symbol);
 		if (newData){
-			this.stockData = newData;
-		} 
+		// 	this.stockData = newData;
+		// 
+	} 
 		else {
 			this.stockData = {
 				name: 'Stock Not Found',

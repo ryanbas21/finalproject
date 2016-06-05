@@ -6,11 +6,7 @@ import './rxjs-operators';
 	@Injectable() 
 	export class StockApiService {
 		public stocks = [
-
-
 			
-
-			 
 		];
 
 		purchased = [];
@@ -21,6 +17,7 @@ import './rxjs-operators';
 
 		//retrieves stock from array
 		getStock (symbol : string) {
+			console.log('AHHH' + symbol);
 			this.purchased.push(symbol);
 			this.http.get('http://localhost:8000/stock/' + symbol)
 				.map(res => console.log(res))
