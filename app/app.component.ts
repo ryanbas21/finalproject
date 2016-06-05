@@ -12,9 +12,10 @@ import {HTTP_PROVIDERS} from '@angular/http';
 })
 export class AppComponent { 
 	constructor(private stockapiservice: StockApiService){}
-	newForm($event){
-    	let symbol = $event.target.value;
+	newForm(symbol){
+    	symbol = symbol.value;
 		this.stockapiservice.getStock(symbol);
+
   }
 
 }

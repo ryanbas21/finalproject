@@ -18,7 +18,8 @@ marketmuster.config(options);
 //setup for mongo
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/test');
-
+var cors = require('cors');
+app.use(cors());
 //setup for express session/body parser
 var cookieParser = require('cookie-parser');
 var bodyParser = require("body-parser");
@@ -56,7 +57,7 @@ var StockSchema = new mongoose.Schema({
 			});
 
 //index --main app
-app.get('/symbol/:id', function (res,req){
+app.get('/stock/:id', function (res,req){
 	//sym is parameter for symbol
 	//sym is gotten from front-end
 	marketmuster.getQuotes(req.params.id, function(quote){

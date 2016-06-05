@@ -16,8 +16,8 @@ var AppComponent = (function () {
     function AppComponent(stockapiservice) {
         this.stockapiservice = stockapiservice;
     }
-    AppComponent.prototype.newForm = function ($event) {
-        var symbol = $event.target.value;
+    AppComponent.prototype.newForm = function (symbol) {
+        symbol = symbol.value;
         this.stockapiservice.getStock(symbol);
     };
     AppComponent = __decorate([

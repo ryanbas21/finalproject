@@ -5,9 +5,10 @@
 		<h3>insert stuff</h3>
 	</div>
   <div id="main-component" class="col-md-8">
-  	<input type="text" name="sym" />
-  	<button class="btn btn-primary" type="submit" (click)="newForm($event)">Add Stock</button>
-
+  	<form (submit)="newForm(symbol)">
+  	<input type="text" name="sym" #symbol/>
+  	<button class="btn btn-primary" type="submit">Add Stock</button>
+	</form>
  	 <br>
   		<stock *ngFor="let symbol of stockapiservice.purchased"
   		[symbol]="symbol"></stock>
