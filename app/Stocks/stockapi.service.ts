@@ -9,17 +9,6 @@ import {Observable} from "rxjs/Rx";
 		
 		purchased = [];
 		constructor(private http: Http) {}
-		
-		
-		// getStock (symbol: string){
-		// 	console.log(this.stocks, symbol);
-		// 	for (var i = 0; i < this.stocks.length; i++) {
-		// 		if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
-		// 			return this.stocks[i];
-		// 		}
-
-		// 	}
-		// }
 		getStockInfo (symbol: string) {
 			// 
 			return this.http.get('http://localhost:8000/stock/' + symbol);

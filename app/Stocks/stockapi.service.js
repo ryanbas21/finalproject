@@ -16,14 +16,6 @@ var StockApiService = (function () {
         this.http = http;
         this.purchased = [];
     }
-    // getStock (symbol: string){
-    // 	console.log(this.stocks, symbol);
-    // 	for (var i = 0; i < this.stocks.length; i++) {
-    // 		if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
-    // 			return this.stocks[i];
-    // 		}
-    // 	}
-    // }
     StockApiService.prototype.getStockInfo = function (symbol) {
         // 
         return this.http.get('http://localhost:8000/stock/' + symbol);
