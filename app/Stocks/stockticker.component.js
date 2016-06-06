@@ -17,6 +17,7 @@ var StockTickerComponent = (function () {
     StockTickerComponent.prototype.ngOnInit = function () {
         var newData = this.stockapi.getStock(this.symbol);
         if (newData) {
+            this.stockData = newData;
         }
         else {
             this.stockData = {

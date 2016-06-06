@@ -17,18 +17,19 @@ var StockApiService = (function () {
         this.stocks = [];
         this.purchased = [];
     }
-    //retrieves stock from array
     StockApiService.prototype.getStock = function (symbol) {
-        console.log('AHHH' + symbol);
-        this.purchased.push(symbol);
-        this.http.get('http://localhost:8000/stock/' + symbol)
-            .map(function (res) { return console.log(res); })
-            .subscribe(function (stockInfo) { return console.log(stockInfo); });
         for (var i = 0; i < this.stocks.length; i++) {
             if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
                 return this.stocks[i];
             }
         }
+    };
+    StockApiService.prototype.getStockInfo = function (symbol) {
+        var _this = this;
+        this.purchased.push(symbol);
+        this.http.get('http://localhost:8000/stock/' + symbol)
+            .map(function (res) { return console.log(res); })
+            .subscribe(function (stockInfo) { return _this.stocks.push(stockInfo); });
     };
     StockApiService = __decorate([
         core_1.Injectable(), 

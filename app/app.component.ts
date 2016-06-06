@@ -14,10 +14,8 @@ export class AppComponent {
 	constructor(private stockapiservice: StockApiService){}
 	newForm(symbol,$event){
 		$event.preventDefault();
-
     	symbol = symbol.value;
-		console.log(symbol);
-		this.stockapiservice.getStock(symbol);
+		this.stockapiservice.getStockInfo(symbol);
 
   }
 

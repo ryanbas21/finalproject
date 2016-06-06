@@ -1,19 +1,11 @@
 //setup for express
 var express = require ('express');
 var app = express();
-
 var config = require('./config.secret'); //require config.secret for cookies
 var PORT = process.env.PORT || 8000; //port
 //http for requests
 var http = require('http');
 
-//setup for MarketMuster
-var MarketMuster = require("marketmuster");
-var marketmuster = new MarketMuster();
-var options = {
-    datasource: "yahoo"
-}
-marketmuster.config(options);
 
 //setup for mongo
 var mongoose = require('mongoose');
@@ -32,7 +24,7 @@ app.use(expressSession({
 	resave: true,
 	saveUninitialized: true
 }));
-
+var stockData;
 //Constructor for the whole Stock Object to save to db
 var StockSchema = new mongoose.Schema({
 		    symbol: {type:String},
@@ -56,14 +48,24 @@ var StockSchema = new mongoose.Schema({
 	    		});
 			});
 
+//setup for MarketMuster
+var get_stock = require("fetch-stock");
+
 //index --main app
-app.get('/stock/:id', function (res,req){
+app.get('/stock/:id', function (req,res){
+	console.log('HEY!');
+	
+		get_stock.getInfo(req.params.id, function(err, result){ 
+			stockData = JSON.parse(result);
+			res.send(stockData);
+			console.log(stockData[0].l_cur);
+			
+			});
+	
 	//sym is parameter for symbol
 	//sym is gotten from front-end
-	marketmuster.getQuotes(req.params.id, function(sym){
-		res.send(sym)
-	    console.log(quote.sym);
-	});
+	
+
 });
 
 //node listens on server PORT or localhost
