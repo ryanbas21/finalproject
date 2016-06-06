@@ -9,6 +9,7 @@ import './rxjs-operators';
 		purchased = [];
 		constructor(private http: Http) {}
 		stockData: Object
+		
 		getStock (symbol: string){
 			for (var i = 0; i < this.stocks.length; i++) {
 				if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
