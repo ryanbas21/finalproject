@@ -14,22 +14,19 @@ require('./rxjs-operators');
 var StockApiService = (function () {
     function StockApiService(http) {
         this.http = http;
-        this.stocks = [];
         this.purchased = [];
     }
-    StockApiService.prototype.getStock = function (symbol) {
-        for (var i = 0; i < this.stocks.length; i++) {
-            if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
-                return this.stocks[i];
-            }
-        }
-    };
+    // getStock (symbol: string){
+    // 	console.log(this.stocks, symbol);
+    // 	for (var i = 0; i < this.stocks.length; i++) {
+    // 		if (symbol.toLowerCase() === this.stocks[i].symbol.toLowerCase()) {
+    // 			return this.stocks[i];
+    // 		}
+    // 	}
+    // }
     StockApiService.prototype.getStockInfo = function (symbol) {
-        var _this = this;
-        this.purchased.push(symbol);
-        this.http.get('http://localhost:8000/stock/' + symbol)
-            .map(function (res) { return console.log(res); })
-            .subscribe(function (stockInfo) { return _this.stocks.push(stockInfo); });
+        // 
+        return this.http.get('http://localhost:8000/stock/' + symbol);
     };
     StockApiService = __decorate([
         core_1.Injectable(), 

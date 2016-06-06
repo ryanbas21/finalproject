@@ -17,6 +17,8 @@ var StockFormComponent = (function () {
     }
     StockFormComponent.prototype.newForm = function (event) {
         event.preventDefault();
+        console.log(this.symbol);
+        this.stockapiservice.purchased.push(this.symbol);
         for (var i = 0; i < this.stockapiservice.purchased.length; i++) {
             console.log(this.stockapiservice.purchased[i]);
         }

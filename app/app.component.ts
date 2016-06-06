@@ -15,6 +15,7 @@ export class AppComponent {
 	newForm(symbol,$event){
 		$event.preventDefault();
     	symbol = symbol.value;
+		this.stockapiservice.purchased.push(symbol);
 		this.stockapiservice.getStockInfo(symbol);
 
   }

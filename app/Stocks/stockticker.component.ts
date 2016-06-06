@@ -13,20 +13,10 @@ export class StockTickerComponent {
 	
 	constructor(private stockapi: StockApiService){}
 	
-	ngOnInit(){
-		let newData = this.stockapi.getStock(this.symbol);
-		if (newData){
-			this.stockData = newData;
-		
-	} 
-		else {
-			this.stockData = {
-				name: 'Stock Not Found',
-				price: 0
-			}
-		}
+	ngOnInit() {
+		this.stockapi.getStockInfo(this.symbol).map((res) => res.json()).subscribe((res) => {
+			this.stockData = res;
+		})
 
-		}
-	
-	
+	}
 }

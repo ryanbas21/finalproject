@@ -15,16 +15,10 @@ var StockTickerComponent = (function () {
         this.stockapi = stockapi;
     }
     StockTickerComponent.prototype.ngOnInit = function () {
-        var newData = this.stockapi.getStock(this.symbol);
-        if (newData) {
-            this.stockData = newData;
-        }
-        else {
-            this.stockData = {
-                name: 'Stock Not Found',
-                price: 0
-            };
-        }
+        var _this = this;
+        this.stockapi.getStockInfo(this.symbol).map(function (res) { return res.json(); }).subscribe(function (res) {
+            _this.stockData = res;
+        });
     };
     __decorate([
         core_1.Input('symbol'), 
