@@ -13,11 +13,31 @@ var stockapi_service_1 = require('./stockapi.service');
 var StockTickerComponent = (function () {
     function StockTickerComponent(stockapi) {
         this.stockapi = stockapi;
+        this.stockData = {
+            "id": "",
+            "t": "",
+            "e": "",
+            "l": "",
+            "l_fix": "",
+            "l_cur": "",
+            "s": "",
+            "ltt": "",
+            "lt": "",
+            "lt_dts": "",
+            "c": "",
+            "c_fix": "",
+            "cp": "",
+            "cp_fix": "",
+            "ccol": "",
+            "pcls_fix": ""
+        };
     }
     StockTickerComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.stockapi.getStockInfo(this.symbol).map(function (res) { return res.json(); }).subscribe(function (res) {
-            _this.stockData = res;
+        this.stockapi.getStockInfo(this.symbol)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (res) {
+            _this.stockData = res[0];
         });
     };
     __decorate([

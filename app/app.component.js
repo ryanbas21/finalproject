@@ -20,7 +20,7 @@ var AppComponent = (function () {
         $event.preventDefault();
         symbol = symbol.value;
         this.stockapiservice.purchased.push(symbol);
-        this.stockapiservice.getStockInfo(symbol);
+        // this.stockapiservice.getStockInfo(symbol);
     };
     AppComponent = __decorate([
         core_1.Component({

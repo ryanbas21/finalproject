@@ -16,7 +16,7 @@ export class AppComponent {
 		$event.preventDefault();
     	symbol = symbol.value;
 		this.stockapiservice.purchased.push(symbol);
-		this.stockapiservice.getStockInfo(symbol);
+		// this.stockapiservice.getStockInfo(symbol);
 
   }
 

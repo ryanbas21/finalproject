@@ -8,15 +8,37 @@ import {StockApiService} from './stockapi.service';
 
 export class StockTickerComponent {
 	@Input('symbol') symbol : string;
-	stockData: Object;
+	stockData: Object = {
+		"id": ""
+		, "t": ""
+		, "e": ""
+		, "l": ""
+		, "l_fix": ""
+		, "l_cur": ""
+		, "s": ""
+		, "ltt": ""
+		, "lt": ""
+		, "lt_dts": ""
+		, "c": ""
+		, "c_fix": ""
+		, "cp": ""
+		, "cp_fix": ""
+		, "ccol": ""
+		, "pcls_fix": ""
+	}
+
+	
 	
 	
 	constructor(private stockapi: StockApiService){}
 	
 	ngOnInit() {
-		this.stockapi.getStockInfo(this.symbol).map((res) => res.json()).subscribe((res) => {
-			this.stockData = res;
-		})
+		this.stockapi.getStockInfo(this.symbol)
+			.map((res) => res.json())
+			.subscribe((res) => {
+
+				this.stockData = res[0];
+			})
 
 	}
 }
