@@ -8,8 +8,8 @@ var http = require('http');
 
 
 //setup for mongo
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://192.168.43.2:27017');
 var cors = require('cors');
 app.use(cors());
 //setup for express session/body parser
@@ -26,32 +26,30 @@ app.use(expressSession({
 }));
 var stockData;
 //Constructor for the whole Stock Object to save to db
-var StockSchema = new mongoose.Schema({
-		    symbol: {type:String},
-		    name: {type: String},
-		    buyPrice: {type:Number},
-		    sellPrice: {type:Number}
+// var StockSchema = new mongoose.Schema({
+// 		    symbol: {type:String},
+// 		    name: {type: String},
+// 		    buyPrice: {type:Number},
+// 		    sellPrice: {type:Number}
 
-		});
-		//mongo Constructor for Stock to save to db
-		var Stock = mongoose.model('Stock',StockSchema);
+// 		});
+		// //mongo Constructor for Stock to save to db
+		// var Stock = mongoose.model('Stock',StockSchema);
 
-			StockSchema.pre('save', function (next) {
-	    		var self = this;
-	    		Stock.find({stock : self.symbol}, function (err, docs) {
-			        if (!docs.length){
-			            next();
-			        }else{                
+		// 	StockSchema.pre('save', function (next) {
+	 //    		var self = this;
+	 //    		Stock.find({stock : self.symbol}, function (err, docs) {
+		// 	        if (!docs.length){
+		// 	            next();
+		// 	        }else{                
 			 
-			            next(new Error("stock not found!"));
-			        }
-	    		});
-			});
+		// 	            next(new Error("stock not found!"));
+		// 	        }
+	 //    		});
+		// 	});
 
-//setup for MarketMuster
+//setup fetch-stock
 var get_stock = require("fetch-stock");
-
-//index --main app
 app.get('/stock/:id', function (req,res){
 	console.log('HEY!');
 	
@@ -59,12 +57,8 @@ app.get('/stock/:id', function (req,res){
 			stockData = JSON.parse(result);
 			res.send(stockData);
 			console.log(stockData[0].l_cur);
-			
+			return ;
 			});
-	
-	//sym is parameter for symbol
-	//sym is gotten from front-end
-	
 
 });
 

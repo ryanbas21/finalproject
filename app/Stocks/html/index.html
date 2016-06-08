@@ -1,18 +1,20 @@
-
+<link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
 <div id="container-fluid">
-	<div id='sidebar' class="col-md-3">
+	<div id='sidebar' class="col-md-3 animated slideInLeft">
 		<img id="profilepicture" src="../../../assets/placeholder.gif" />
-		<h6><a href="http://finance.yahoo.com/news/warren-buffett-best-investing-advice-201019702.html">Warren Buffets Best Investing Advive [Yahoo]</a></h6>
-    <h6><a href="http://www.investopedia.com/dictionary/">Investopedia Financial Dictionary [Investopedia]</a></h6>
-    <h6><a href="http://www.forbes.com/investing/#6edfd18488d8">Forbes Investing  [FORBES]</a></h6>
-    <h6><a href="http://www.moneycrashers.com/stock-market-investing-tips-guide-checklist/">Money Crashers Investing Guide [MONEYCRASHERS]</a></h6>
+		<h6 class="animated fadeIn"><a href="http://finance.yahoo.com/news/warren-buffett-best-investing-advice-201019702.html">Warren Buffets Best Investing Advive [Yahoo]</a></h6>
+    <h6 class="animated fadeIn"><a href="http://www.investopedia.com/dictionary/">Investopedia Financial Dictionary [Investopedia]</a></h6>
+    <h6 class="animated fadeIn"><a href="http://www.forbes.com/investing/#6edfd18488d8">Forbes Investing  [FORBES]</a></h6>
+    <h6 class="animated fadeIn"><a href="http://www.moneycrashers.com/stock-market-investing-tips-guide-checklist/">Money Crashers Investing Guide [MONEYCRASHERS]</a></h6>
 
 	</div>
-  <div id="main-component" class="col-md-8">
-  	<form (submit)="newForm(symbol,$event)">
-  	<input type="text" name="sym" #symbol placeholder="Stock Symbol's Only" />
-  	<button class="btn btn-primary" type="submit">Add Stock</button>
-	</form>
+  <div class="col-md-8 animated fadeIn" id="topdiv">
+    <form (submit)="newForm(symbol,$event)">
+    <input type="text" name="sym" #symbol placeholder="Stock Symbol's Only" />
+    <button class="btn btn-primary" position="fixed" type="submit">Add Stock</button>
+  </form>
+  </div>
+  <div id="main-component" class="col-md-8 animated fadeIn">
  	 <br>
   		<stock *ngFor="let symbol of stockapiservice.purchased"
   		[symbol]="symbol"></stock>

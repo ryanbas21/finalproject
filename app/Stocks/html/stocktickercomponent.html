@@ -1,13 +1,21 @@
-<link rel="stylesheet" href="">
-<div class="stock-component">
+<link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Stock ID: {{stockData.id}}</div>
+
+  <!-- Table -->
+<div class="stock-component animated fadeInUp ">
 		<table>
-			<tr>
-				<td>Date {{stockData.lt}}</td>
-				<td>Symbol: {{symbol}}</td>
-				<td>Buy Price:{{stockData.l}}</td>
+			<tr class="animated fadeInUp">
+				<td>Date {{stockData.lt}}<br>
+				<textarea rows="4" placeholder="if you want to write something about the stock, do so here"></textarea></td>
+				<td class="animated flash">Symbol: {{symbol.toUpperCase()}}</td>
+				<td class="animated flipInY">Buy Price:{{stockData.l}}</td>
 				<td>Exchange:{{stockData.e}}</td>
 				<td>Percent Change {{stockData.c}}</td>
 
 			</tr>
 		</table>
+		</div>
 </div>
