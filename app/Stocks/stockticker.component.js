@@ -38,6 +38,7 @@ var StockTickerComponent = (function () {
             .map(function (res) { return res.json(); })
             .subscribe(function (res) {
             _this.stockData = res[0];
+            _this.money -= res[0].l;
         });
     };
     __decorate([

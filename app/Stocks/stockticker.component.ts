@@ -31,6 +31,7 @@ export class StockTickerComponent {
 	
 	
 	constructor(private stockapi: StockApiService){}
+
 	
 	ngOnInit() {
 		this.stockapi.getStockInfo(this.symbol)
@@ -38,7 +39,10 @@ export class StockTickerComponent {
 			.subscribe((res) => {
 
 				this.stockData = res[0];
+				this.money -= res[0].l;
 			})
-
+		
+		
 	}
+
 }
