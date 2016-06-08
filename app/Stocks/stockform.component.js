@@ -30,7 +30,7 @@ var StockFormComponent = (function () {
     StockFormComponent = __decorate([
         core_1.Component({
             selector: 'stockform',
-            template: "<div>\n\t\t\t\t\tCurrent Money: ${{money}}\n\n\t\t\t\t</div>\n\t\t\t\t"
+            template: "<div>\n\t\t\t\t\n\n\t\t\t\t</div>\n\t\t\t\t"
         }),
         core_2.Injectable(), 
         __metadata('design:paramtypes', [stockapi_service_1.StockApiService])

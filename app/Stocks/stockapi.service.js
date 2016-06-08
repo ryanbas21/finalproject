@@ -17,6 +17,7 @@ var StockApiService = (function () {
         this.purchased = [];
     }
     StockApiService.prototype.getStockInfo = function (symbol) {
+        // 
         return this.http.get('http://localhost:8000/stock/' + symbol);
     };
     StockApiService = __decorate([

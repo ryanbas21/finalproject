@@ -10,7 +10,7 @@ import {Observable} from "rxjs/Rx";
 		purchased = [];
 		constructor(private http: Http) {}
 		getStockInfo (symbol: string) {
-			
+			// 
 			return this.http.get('http://localhost:8000/stock/' + symbol);
 				
 			
